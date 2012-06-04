@@ -7,7 +7,8 @@
     <meta name="description" content="Flap : Skeuomorphic Split-Flap (Solari Board) Display for RaphaëlJS" />
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
+    <script src="lib/raphael.js" type="text/javascript"></script>
+    <script src="src/flap.js" type="text/javascript"></script>
     <title>Flap</title>
   </head>
 
@@ -58,6 +59,25 @@
 
 
 <p>And you'll get this:</p>
+<div id="clock"></div>
+
+<script type="text/javascript">
+  var clock = new Flap('clock', { length: 5, library: 'time'});
+
+  function updateTime() {
+    var date = new Date(), 
+        hours = date.getHours(), 
+        minutes = date.getMinutes(), 
+        time; 
+
+    hours = hours < 10 ? "0" + hours : hours; 
+    minutes = minutes < 10 ? "0" + minutes : minutes; 
+
+    time = hours +":"+ minutes; clock.text(time); 
+  }
+  updateTime();
+  setInterval(updateTime, 1000);
+</script>
 
 <h2>Maintainers</h2>
 
