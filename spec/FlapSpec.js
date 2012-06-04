@@ -42,7 +42,7 @@ describe("Flap", function() {
     var params3 = {text: 'hello, world'};
     var test3 = new Flap('test', params3);
 
-    expect(test3._paper.width).toBe(params.text.length*35 -5);
+    expect(test3._paper.width).toBe(params3.text.length*35 -5);
   });
 
   it("should not allow text longer than its width", function() {
