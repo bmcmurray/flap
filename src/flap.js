@@ -91,21 +91,16 @@
         return _text.trim();
       }
 
-      try {
-        if (text.length <= _length) {
-          tmpText = text.split('');
-          for (i = 0; i < (_length - text.length); i++) {
-            tmpText.unshift(' ');
-          }
-          text = tmpText.join('');
+      if (text.length <= _length) {
+        tmpText = text.split('');
+        for (i = 0; i < (_length - text.length); i++) {
+          tmpText.unshift(' ');
         }
-        else {
-          // error out if attempting to set a string longer than allowed space
-          throw new Error('Flap: Text exceeds area length');
-        }
+        text = tmpText.join('');
       }
-      catch(err) {
-        return that;
+      else {
+        // error out if attempting to set a string longer than allowed space
+        throw new Error('Flap: Text exceeds area length');
       }
 
       // store the new text

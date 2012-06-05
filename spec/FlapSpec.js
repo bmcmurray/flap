@@ -49,7 +49,11 @@ describe("Flap", function() {
     var params = {length: 5};
     var test = new Flap('test', params);
 
-    test.text('too long');
-    expect(test.text()).toBe('');
+    var testSetText = function() {
+      test.text('too long');
+    }
+
+    var expectedException = new Error('Flap: Text exceeds area length');
+    expect(testSetText).toThrow(expectedException);
   });
 });
