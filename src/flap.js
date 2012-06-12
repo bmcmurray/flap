@@ -90,6 +90,10 @@
       if (text === undefined) {
         return _text.trim();
       }
+      else {
+        // Always treat text as a string.
+        text = "" + text;
+      }
 
       if (text.length <= _length) {
         tmpText = text.split('');
