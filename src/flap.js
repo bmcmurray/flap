@@ -266,7 +266,11 @@
         if ( g > 255 ) g = 255;
         else if  ( g < 0 ) g = 0;
 
-        return (usePound?"#":"") + (g | (b << 8) | (r << 16)).toString(16);
+        var rStr = (r.toString(16).length < 2)?'0'+r.toString(16):r.toString(16);
+        var gStr = (g.toString(16).length < 2)?'0'+g.toString(16):g.toString(16);
+        var bStr = (b.toString(16).length < 2)?'0'+b.toString(16):b.toString(16);
+
+        return (usePound?"#":"") + rStr + bStr + gStr;
       }
 
       function flip(callback) {
