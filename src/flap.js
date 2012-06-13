@@ -304,7 +304,7 @@
 
       this.setText = function(letter) {
         try {
-          if (!(letter in values(_library))) {
+          if (!(letter.toLowerCase() in values(_library))) {
             throw new Error('Flap: Character not in library.');
           }
           if (letter != _letter) {
